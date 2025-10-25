@@ -5,28 +5,26 @@
 
 <head th:replace="~{base::head}">
     <style>
-        /* General Styles */
         body {
-            background-color: #eef2f7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
             color: #333;
         }
 
-        .invoice-container {
+        .invoice-wrapper {
             max-width: 900px;
             margin: 3rem auto;
-            padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
 
         .invoice-header {
-            background: linear-gradient(90deg, #28a745, #218838);
-            color: #fff;
+            background: linear-gradient(90deg, #4CAF50, #2E7D32);
             padding: 1.5rem;
-            border-radius: 15px 15px 0 0;
             text-align: center;
+            color: #fff;
         }
 
         .invoice-header h1 {
@@ -40,18 +38,18 @@
         }
 
         .invoice-title {
-            color: #28a745;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
             text-align: center;
+            font-size: 1.6rem;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 2rem;
         }
 
         .invoice-section {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            justify-content: space-between;
+            margin-bottom: 2rem;
         }
 
         .invoice-section div {
@@ -60,7 +58,7 @@
         }
 
         .invoice-section p {
-            margin: 0.4rem 0;
+            margin: 0.5rem 0;
             font-size: 1rem;
         }
 
@@ -73,25 +71,26 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: #28a745;
-            border: none;
+            background-color: #4CAF50;
             color: #fff;
-            padding: 0.6rem 1.5rem;
+            border: none;
+            padding: 0.6rem 1.8rem;
             font-size: 1rem;
             border-radius: 50px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .print-btn:hover {
-            background-color: #218838;
+            background-color: #388E3C;
         }
 
         .invoice-footer {
             text-align: center;
             font-size: 0.85rem;
             color: #777;
-            margin-top: 2rem;
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
         }
 
         hr {
@@ -112,7 +111,7 @@
 <div th:replace="~{base::navbar}"></div>
 <div th:replace="~{base::header(text='Booking Confirmation')}"></div>
 
-<div class="invoice-container">
+<div class="invoice-wrapper">
     <div class="invoice-header">
         <h1>Booking Confirmed!</h1>
     </div>
