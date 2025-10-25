@@ -6,18 +6,18 @@
 <head th:replace="~{base::head}">
     <style>
         body {
-            background-color: #eef2f7;
+            background-color: #f4f6f9;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
         }
 
-        .invoice-container {
+        .invoice-card {
             max-width: 800px;
             margin: 3rem auto;
-            background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
 
         .invoice-header {
@@ -27,54 +27,50 @@
             text-align: center;
         }
 
-        .invoice-header h1 {
+        .invoice-header h3 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
+        }
+
+        .invoice-header p {
+            margin: 0;
+            font-size: 1rem;
         }
 
         .invoice-body {
             padding: 2rem;
-            text-align: center;
         }
 
-        .invoice-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #28a745;
-            margin-bottom: 2rem;
-        }
-
-        table {
+        .invoice-table {
             width: 100%;
             max-width: 600px;
             margin: 0 auto 2rem auto;
             border-collapse: collapse;
         }
 
-        th, td {
+        .invoice-table th,
+        .invoice-table td {
             padding: 0.8rem 1rem;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
 
-        th {
+        .invoice-table th {
             background-color: #28a745;
-            color: white;
+            color: #fff;
             font-weight: 600;
         }
 
-        td {
-            color: #555;
-        }
-
         .print-btn {
-            background-color: #28a745;
-            border: none;
-            color: #fff;
-            padding: 0.6rem 1.5rem;
+            display: inline-block;
+            padding: 0.8rem 2rem;
             font-size: 1rem;
+            font-weight: 600;
             border-radius: 50px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
             cursor: pointer;
             transition: 0.3s;
         }
@@ -85,13 +81,18 @@
 
         .invoice-footer {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #777;
-            padding: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         @media (max-width: 768px) {
-            th, td {
+            .invoice-body {
+                padding: 1.5rem;
+            }
+
+            .invoice-table th,
+            .invoice-table td {
                 font-size: 0.9rem;
             }
         }
@@ -100,52 +101,53 @@
 
 <body>
 <div th:replace="~{base::navbar}"></div>
-<div th:replace="~{base::header(text='Booking Confirmation')}"></div>
+<div th:replace="~{base::header(text='Booking Success')}"></div>
 
-<div class="invoice-container">
+<div class="invoice-card">
     <div class="invoice-header">
-        <h1>Booking Confirmed!</h1>
+        <h3>Booking Confirmed!</h3>
+        <p>Thank you for your booking.</p>
     </div>
 
     <div class="invoice-body">
-        <div class="invoice-title">Invoice Details</div>
-
-        <table>
+        <table class="invoice-table">
             <tbody>
             <tr>
                 <th>Booking ID</th>
-                <td th:text="${booked.id}">4</td>
+                <td th:text="${booked.id}">BK123456</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td th:text="${booked.name}">Tak Tou</td>
+                <td th:text="${booked.name}">John Doe</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td th:text="${booked.email}">Taktou@gmail.com</td>
+                <td th:text="${booked.email}">john@example.com</td>
             </tr>
             <tr>
                 <th>Phone</th>
-                <td th:text="${booked.phoneNumber}">013564354</td>
+                <td th:text="${booked.phoneNumber}">+1 234 567 890</td>
             </tr>
             <tr>
                 <th>Date</th>
-                <td th:text="${booked.date}">11/25/2025</td>
+                <td th:text="${booked.date}">2025-09-11</td>
             </tr>
             <tr>
                 <th>Time</th>
-                <td th:text="${booked.time}">6:00 PM</td>
+                <td th:text="${booked.time}">10:00 AM</td>
             </tr>
             </tbody>
         </table>
 
-        <button class="print-btn" onclick="window.print()">
-            <i class="bi bi-printer"></i> Print Invoice
-        </button>
+        <div class="text-center">
+            <button class="print-btn" onclick="window.print()">
+                <i class="bi bi-printer me-2"></i> Print Invoice
+            </button>
+        </div>
     </div>
 
     <div class="invoice-footer">
-        <p>If you have any questions, please contact our support team at 
+        <p>If you have any questions about your booking, please contact our support team at 
             <a href="mailto:support@example.com">support@example.com</a>.
         </p>
     </div>
