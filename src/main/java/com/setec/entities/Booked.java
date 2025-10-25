@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name="tbl_booked")
+@Entity(name="tbl_booked_taktou")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
